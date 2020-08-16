@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  InfoView.swift
 //  Favoriteplace
 //
 //  Created by Mustafa Khalil on 8/16/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Turtle Rock")
@@ -23,8 +23,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        InfoView()
     }
 }

@@ -1,0 +1,24 @@
+enum Category: byte {
+    featured, lakes, rivers
+}
+struct Coordinates {
+    longitude: double;
+    latitude: double;
+}
+
+table Place {
+    id: int;
+    name: string (required);
+    park: string (required);
+    coordinates: Coordinates;
+    state: string (required);
+    city: string (required);
+    category: Category;
+    image_name: string (required);
+}
+
+table Places {
+    data: [Place];
+}
+
+root_type Places;

@@ -11,7 +11,7 @@ import SwiftUI
 struct FavoriteplaceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GridView().environmentObject(GridViewModel())
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 class GridViewModel: ObservableObject {
     var count: Int
-    let places: Places
+    var places: Places
     
     init() {
         places = Store.instance.places

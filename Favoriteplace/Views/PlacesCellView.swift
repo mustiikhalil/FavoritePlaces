@@ -10,15 +10,26 @@ import SwiftUI
 struct PlacesCellView: View {
     var place: Place
     
+    init(place: Place) {
+        Swift.withUnsafePointer(to: place) { p in
+            print("cell: ", p)
+        }
+        self.place = place
+        Swift.withUnsafePointer(to: self.place) { p in
+            print("self.cell: ", p)
+        }
+    }
+    
     var body: some View {
         place
             .image
-            .scaledToFill()
+            .resizable()
+            .frame(width: 180, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .overlay(
                 ZStack {
                     VStack {
                         Spacer()
-                        ShadowView(place: place)
+                        ShadowView(name: place.name)
                     }.frame(minWidth: 0,
                             maxWidth: .infinity,
                             minHeight: 0,

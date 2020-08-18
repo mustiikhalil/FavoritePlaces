@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ShadowView: View {
-    var place: Place
+    var name: String
     
     var body: some View {
         VStack(alignment: .center) {
-            Text(place.name)
+            Text(name)
         }
         .foregroundColor(.white)
         .padding(.all)
@@ -25,8 +25,8 @@ struct ShadowView: View {
 struct ShadowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ShadowView(place: Store.getFirstPlace)
-            ShadowView(place: Store.getFirstPlace)
+            ShadowView(name: Store.getFirstPlace.name)
+            ShadowView(name: Store.getFirstPlace.name)
         }.previewLayout(.fixed(width: 300, height: 300))
     }
 }

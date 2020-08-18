@@ -10,12 +10,12 @@
 		DF6CE37824EAC63400A8DA45 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6CE37724EAC63400A8DA45 /* ShadowView.swift */; };
 		DF6CE37A24EAC93100A8DA45 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6CE37924EAC93100A8DA45 /* GridView.swift */; };
 		DF6CE37C24EACD5600A8DA45 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6CE37B24EACD5600A8DA45 /* GridViewModel.swift */; };
+		DF993B1524EB09AE00083F76 /* FlatBuffers in Frameworks */ = {isa = PBXBuildFile; productRef = DF993B1424EB09AE00083F76 /* FlatBuffers */; };
 		DFC3513124E96254009388B8 /* FavoriteplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3513024E96254009388B8 /* FavoriteplaceApp.swift */; };
 		DFC3513524E96256009388B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFC3513424E96256009388B8 /* Assets.xcassets */; };
 		DFC3513824E96256009388B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFC3513724E96256009388B8 /* Preview Assets.xcassets */; };
 		DFC3514024E97E71009388B8 /* ImageCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3513F24E97E71009388B8 /* ImageCircleView.swift */; };
 		DFC3514324E999D4009388B8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3514224E999D4009388B8 /* MapView.swift */; };
-		DFC3514524E99A87009388B8 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3514424E99A87009388B8 /* InfoView.swift */; };
 		DFC3514724E99AA0009388B8 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3514624E99AA0009388B8 /* DetailsView.swift */; };
 		DFC3515624E99BF1009388B8 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFC3514924E99BF1009388B8 /* turtlerock.jpg */; };
 		DFC3515724E99BF1009388B8 /* silversalmoncreek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFC3514A24E99BF1009388B8 /* silversalmoncreek.jpg */; };
@@ -31,7 +31,6 @@
 		DFC3516224E99BF1009388B8 /* rainbowlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFC3515524E99BF1009388B8 /* rainbowlake.jpg */; };
 		DFC3516524E99C75009388B8 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3516424E99C75009388B8 /* Store.swift */; };
 		DFCB75E324E9CF9100D22B96 /* places_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB75E224E9CF9100D22B96 /* places_generated.swift */; };
-		DFCB75E624E9CFC400D22B96 /* FlatBuffers in Frameworks */ = {isa = PBXBuildFile; productRef = DFCB75E524E9CFC400D22B96 /* FlatBuffers */; };
 		DFCB75EB24E9D61500D22B96 /* data.mon in Resources */ = {isa = PBXBuildFile; fileRef = DFCB75EA24E9D61500D22B96 /* data.mon */; };
 		DFCB75ED24E9D68900D22B96 /* Landmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB75EC24E9D68900D22B96 /* Landmarks.swift */; };
 		DFCB75EF24E9D6AE00D22B96 /* places_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB75EE24E9D6AE00D22B96 /* places_extension.swift */; };
@@ -50,7 +49,6 @@
 		DFC3513924E96256009388B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFC3513F24E97E71009388B8 /* ImageCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCircleView.swift; sourceTree = "<group>"; };
 		DFC3514224E999D4009388B8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		DFC3514424E99A87009388B8 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		DFC3514624E99AA0009388B8 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		DFC3514924E99BF1009388B8 /* turtlerock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtlerock.jpg; sourceTree = "<group>"; };
 		DFC3514A24E99BF1009388B8 /* silversalmoncreek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silversalmoncreek.jpg; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFCB75E624E9CFC400D22B96 /* FlatBuffers in Frameworks */,
+				DF993B1524EB09AE00083F76 /* FlatBuffers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,11 +91,19 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		DF993B1024EB044E00083F76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DFC3512424E96254009388B8 = {
 			isa = PBXGroup;
 			children = (
 				DFC3512F24E96254009388B8 /* Favoriteplace */,
 				DFC3512E24E96254009388B8 /* Products */,
+				DF993B1024EB044E00083F76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +144,6 @@
 			children = (
 				DFC3513F24E97E71009388B8 /* ImageCircleView.swift */,
 				DFC3514224E999D4009388B8 /* MapView.swift */,
-				DFC3514424E99A87009388B8 /* InfoView.swift */,
 				DFC3514624E99AA0009388B8 /* DetailsView.swift */,
 				DFCB75F224EABE9300D22B96 /* PlacesCellView.swift */,
 				DF6CE37724EAC63400A8DA45 /* ShadowView.swift */,
@@ -203,7 +208,7 @@
 			);
 			name = Favoriteplace;
 			packageProductDependencies = (
-				DFCB75E524E9CFC400D22B96 /* FlatBuffers */,
+				DF993B1424EB09AE00083F76 /* FlatBuffers */,
 			);
 			productName = Favoriteplace;
 			productReference = DFC3512D24E96254009388B8 /* Favoriteplace.app */;
@@ -233,7 +238,7 @@
 			);
 			mainGroup = DFC3512424E96254009388B8;
 			packageReferences = (
-				DFCB75E424E9CFC400D22B96 /* XCRemoteSwiftPackageReference "flatbuffers" */,
+				DF993B1324EB09AE00083F76 /* XCRemoteSwiftPackageReference "flatbuffers" */,
 			);
 			productRefGroup = DFC3512E24E96254009388B8 /* Products */;
 			projectDirPath = "";
@@ -282,7 +287,6 @@
 				DFC3514324E999D4009388B8 /* MapView.swift in Sources */,
 				DFCB75EF24E9D6AE00D22B96 /* places_extension.swift in Sources */,
 				DFC3514024E97E71009388B8 /* ImageCircleView.swift in Sources */,
-				DFC3514524E99A87009388B8 /* InfoView.swift in Sources */,
 				DFC3513124E96254009388B8 /* FavoriteplaceApp.swift in Sources */,
 				DFC3514724E99AA0009388B8 /* DetailsView.swift in Sources */,
 				DFCB75ED24E9D68900D22B96 /* Landmarks.swift in Sources */,
@@ -478,7 +482,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DFCB75E424E9CFC400D22B96 /* XCRemoteSwiftPackageReference "flatbuffers" */ = {
+		DF993B1324EB09AE00083F76 /* XCRemoteSwiftPackageReference "flatbuffers" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mustiikhalil/flatbuffers";
 			requirement = {
@@ -489,9 +493,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DFCB75E524E9CFC400D22B96 /* FlatBuffers */ = {
+		DF993B1424EB09AE00083F76 /* FlatBuffers */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DFCB75E424E9CFC400D22B96 /* XCRemoteSwiftPackageReference "flatbuffers" */;
+			package = DF993B1324EB09AE00083F76 /* XCRemoteSwiftPackageReference "flatbuffers" */;
 			productName = FlatBuffers;
 		};
 /* End XCSwiftPackageProductDependency section */

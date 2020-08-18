@@ -22,7 +22,6 @@ final class Store {
         guard let data = try? Data(contentsOf: file) else {
             fatalError("Couldnt load data from \(file)")
         }
-        
         places = Places.getRootAsPlaces(bb: ByteBuffer(data: data))
     }
     

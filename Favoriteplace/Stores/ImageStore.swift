@@ -10,7 +10,7 @@ import SwiftUI
 final class ImageStore {
     typealias _ImagesCache = [String: CGImage]
     private var cache: _ImagesCache = [:]
-    private var scale: CGFloat = 3
+    private var scale: CGFloat = 2
     
     static var shared = ImageStore()
     

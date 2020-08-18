@@ -10,13 +10,6 @@ import SwiftUI
 struct DetailsView: View {
     var place: Place
     
-    init(place: Place) {
-        Swift.withUnsafePointer(to: place) { p in
-            print("details: ", p)
-        }
-        self.place = place
-    }
-    
     var body: some View {
         VStack {
             MapView(coordinate: place.location)

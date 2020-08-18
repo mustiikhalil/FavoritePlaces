@@ -54,20 +54,19 @@ public struct Place: FlatBufferObject {
 
     enum VTOFFSET: VOffset {
         case id = 4
-        case isFavorite = 6
-        case name = 8
-        case park = 10
-        case coordinates = 12
-        case state = 14
-        case city = 16
-        case category = 18
-        case imageName = 20
+        case name = 6
+        case park = 8
+        case coordinates = 10
+        case state = 12
+        case city = 14
+        case category = 16
+        case imageName = 18
+        case isFavorite = 20
         var v: Int32 { Int32(self.rawValue) }
         var p: VOffset { self.rawValue }
     }
 
     public var id: Int32 { let o = _accessor.offset(VTOFFSET.id.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int32.self, at: o) }
-    public var isFavorite: Bool { let o = _accessor.offset(VTOFFSET.isFavorite.v); return o == 0 ? false : 0 != _accessor.readBuffer(of: Byte.self, at: o) }
     public var name: String! { let o = _accessor.offset(VTOFFSET.name.v); return _accessor.string(at: o) }
     public var nameSegmentArray: [UInt8]! { return _accessor.getVector(at: VTOFFSET.name.v) }
     public var park: String! { let o = _accessor.offset(VTOFFSET.park.v); return _accessor.string(at: o) }
@@ -80,10 +79,9 @@ public struct Place: FlatBufferObject {
     public var category: Category { let o = _accessor.offset(VTOFFSET.category.v); return o == 0 ? .featured : Category(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .featured }
     public var imageName: String! { let o = _accessor.offset(VTOFFSET.imageName.v); return _accessor.string(at: o) }
     public var imageNameSegmentArray: [UInt8]! { return _accessor.getVector(at: VTOFFSET.imageName.v) }
+    public var isFavorite: Bool { let o = _accessor.offset(VTOFFSET.isFavorite.v); return o == 0 ? false : 0 != _accessor.readBuffer(of: Byte.self, at: o) }
     public static func startPlace(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 9) }
     public static func add(id: Int32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: id, def: 0, at: VTOFFSET.id.p) }
-    public static func add(isFavorite: Bool, _ fbb: inout FlatBufferBuilder) { fbb.add(element: isFavorite, def: false,
-     at: VTOFFSET.isFavorite.p) }
     public static func add(name: Offset<String>, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: name, at: VTOFFSET.name.p)  }
     public static func add(park: Offset<String>, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: park, at: VTOFFSET.park.p)  }
     public static func add(coordinates: UnsafeMutableRawPointer?, _ fbb: inout FlatBufferBuilder) { guard let coordinates = coordinates else { return }; fbb.create(struct: coordinates, type: Coordinates.self); fbb.add(structOffset: VTOFFSET.coordinates.p) }
@@ -91,22 +89,23 @@ public struct Place: FlatBufferObject {
     public static func add(city: Offset<String>, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: city, at: VTOFFSET.city.p)  }
     public static func add(category: Category, _ fbb: inout FlatBufferBuilder) { fbb.add(element: category.rawValue, def: 0, at: VTOFFSET.category.p) }
     public static func add(imageName: Offset<String>, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: imageName, at: VTOFFSET.imageName.p)  }
-    public static func endPlace(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset<UOffset> { let end = Offset<UOffset>(offset: fbb.endTable(at: start)); fbb.require(table: end, fields: [8, 10, 14, 16, 20]); return end }
+    public static func add(isFavorite: Bool, _ fbb: inout FlatBufferBuilder) { fbb.add(element: isFavorite, def: false,
+     at: VTOFFSET.isFavorite.p) }
+    public static func endPlace(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset<UOffset> { let end = Offset<UOffset>(offset: fbb.endTable(at: start)); fbb.require(table: end, fields: [6, 8, 12, 14, 18]); return end }
     public static func createPlace(
         _ fbb: inout FlatBufferBuilder,
         id: Int32 = 0,
-        isFavorite: Bool = false,
         offsetOfName name: Offset<String> = Offset(),
         offsetOfPark park: Offset<String> = Offset(),
         structOfCoordinates coordinates: UnsafeMutableRawPointer? = nil,
         offsetOfState state: Offset<String> = Offset(),
         offsetOfCity city: Offset<String> = Offset(),
         category: Category = .featured,
-        offsetOfImageName imageName: Offset<String> = Offset()
+        offsetOfImageName imageName: Offset<String> = Offset(),
+        isFavorite: Bool = false
     ) -> Offset<UOffset> {
         let __start = Place.startPlace(&fbb)
         Place.add(id: id, &fbb)
-        Place.add(isFavorite: isFavorite, &fbb)
         Place.add(name: name, &fbb)
         Place.add(park: park, &fbb)
         Place.add(coordinates: coordinates, &fbb)
@@ -114,6 +113,7 @@ public struct Place: FlatBufferObject {
         Place.add(city: city, &fbb)
         Place.add(category: category, &fbb)
         Place.add(imageName: imageName, &fbb)
+        Place.add(isFavorite: isFavorite, &fbb)
         return Place.endPlace(&fbb, start: __start)
     }
 }

@@ -10,16 +10,6 @@ import SwiftUI
 struct PlacesCellView: View {
     var place: Place
     
-    init(place: Place) {
-        Swift.withUnsafePointer(to: place) { p in
-            print("cell: ", p)
-        }
-        self.place = place
-        Swift.withUnsafePointer(to: self.place) { p in
-            print("self.cell: ", p)
-        }
-    }
-    
     var body: some View {
         place
             .image

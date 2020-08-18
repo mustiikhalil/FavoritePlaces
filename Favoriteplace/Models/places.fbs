@@ -8,7 +8,6 @@ struct Coordinates {
 
 table Place {
     id: int;
-    is_favorite: bool;
     name: string (required);
     park: string (required);
     coordinates: Coordinates;
@@ -16,6 +15,7 @@ table Place {
     city: string (required);
     category: Category;
     image_name: string (required);
+    is_favorite: bool;
 }
 
 table Places {

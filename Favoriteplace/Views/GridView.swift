@@ -9,20 +9,28 @@ import SwiftUI
 
 struct GridView: View {
     @EnvironmentObject var viewModel: GridViewModel
+    
     var columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
     var body: some View {
-        NavigationView {
+        return NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 10)
-                {
+                Toggle(isOn: $viewModel.showFavoritesOnly, label: {
+                    Text("Show Favorites Only")
+                        .bold()
+                        .font(.subheadline)
+                })
+                .padding()
+                LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
                     ForEach(0..<viewModel.count) { index in
                         let place = viewModel.getPlace(at: index)
-                        NavigationLink(destination: DetailsView(place: place)) {
-                            PlacesCellView(place: place)
+                        if !viewModel.showFavoritesOnly || place.isFavorite {
+                            NavigationLink(destination: DetailsView(place: place, index: index)) {
+                                PlacesCellView(place: place)
+                            }
                         }
                     }
                 }

@@ -27,7 +27,9 @@ public struct Coordinates: Readable {
     public init(_ bb: ByteBuffer, o: Int32) { _accessor = Struct(bb: bb, position: o) }
 
     public var longitude: Double { return _accessor.readBuffer(of: Double.self, at: 0) }
+    @discardableResult public func mutate(longitude: Double) -> Bool { return _accessor.mutate(longitude, index: 0) }
     public var latitude: Double { return _accessor.readBuffer(of: Double.self, at: 8) }
+    @discardableResult public func mutate(latitude: Double) -> Bool { return _accessor.mutate(latitude, index: 8) }
 }
 
 extension Coordinates {
@@ -52,7 +54,7 @@ public struct Place: FlatBufferObject {
     private init(_ t: Table) { _accessor = t }
     public init(_ bb: ByteBuffer, o: Int32) { _accessor = Table(bb: bb, position: o) }
 
-    enum VTOFFSET: VOffset {
+    private enum VTOFFSET: VOffset {
         case id = 4
         case name = 6
         case park = 8
@@ -67,6 +69,7 @@ public struct Place: FlatBufferObject {
     }
 
     public var id: Int32 { let o = _accessor.offset(VTOFFSET.id.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int32.self, at: o) }
+    @discardableResult public func mutate(id: Int32) -> Bool {let o = _accessor.offset(VTOFFSET.id.v);  return _accessor.mutate(id, index: o) }
     public var name: String! { let o = _accessor.offset(VTOFFSET.name.v); return _accessor.string(at: o) }
     public var nameSegmentArray: [UInt8]! { return _accessor.getVector(at: VTOFFSET.name.v) }
     public var park: String! { let o = _accessor.offset(VTOFFSET.park.v); return _accessor.string(at: o) }
@@ -77,9 +80,11 @@ public struct Place: FlatBufferObject {
     public var city: String! { let o = _accessor.offset(VTOFFSET.city.v); return _accessor.string(at: o) }
     public var citySegmentArray: [UInt8]! { return _accessor.getVector(at: VTOFFSET.city.v) }
     public var category: Category { let o = _accessor.offset(VTOFFSET.category.v); return o == 0 ? .featured : Category(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .featured }
+    @discardableResult public func mutate(category: Category) -> Bool {let o = _accessor.offset(VTOFFSET.category.v);  return _accessor.mutate(category.rawValue, index: o) }
     public var imageName: String! { let o = _accessor.offset(VTOFFSET.imageName.v); return _accessor.string(at: o) }
     public var imageNameSegmentArray: [UInt8]! { return _accessor.getVector(at: VTOFFSET.imageName.v) }
     public var isFavorite: Bool { let o = _accessor.offset(VTOFFSET.isFavorite.v); return o == 0 ? false : 0 != _accessor.readBuffer(of: Byte.self, at: o) }
+    @discardableResult public func mutate(isFavorite: Bool) -> Bool {let o = _accessor.offset(VTOFFSET.isFavorite.v);  return _accessor.mutate(isFavorite, index: o) }
     public static func startPlace(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 9) }
     public static func add(id: Int32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: id, def: 0, at: VTOFFSET.id.p) }
     public static func add(name: Offset<String>, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: name, at: VTOFFSET.name.p)  }
@@ -129,7 +134,7 @@ public struct Places: FlatBufferObject {
     private init(_ t: Table) { _accessor = t }
     public init(_ bb: ByteBuffer, o: Int32) { _accessor = Table(bb: bb, position: o) }
 
-    enum VTOFFSET: VOffset {
+    private enum VTOFFSET: VOffset {
         case data = 4
         var v: Int32 { Int32(self.rawValue) }
         var p: VOffset { self.rawValue }

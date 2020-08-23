@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-extension Place {
+extension Place: Identifiable {
     
     var location: CLLocationCoordinate2D {
         //NOTE: Force unwrapping since we already know the data is going to be there!
@@ -29,7 +29,7 @@ extension Place: Hashable {
     }
     
     public static func == (lhs: Place, rhs: Place) -> Bool {
-        lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.isFavorite == rhs.isFavorite
     }
 }
 

@@ -19,7 +19,8 @@ struct PlacesCellView: View {
                 ZStack {
                     VStack {
                         Spacer()
-                        ShadowView(name: place.name)
+                        ShadowView(name: place.name,
+                                   isFavorite: place.isFavorite)
                     }.frame(minWidth: 0,
                             maxWidth: .infinity,
                             minHeight: 0,
